@@ -3,7 +3,8 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import estilosPadrao from './estilos';
 
-export default function CampoInteiro({valor, estilos, acao}) {
+export default function CampoInteiro({valor, estilos, acao, editable}) {
+  
   const atualiza = (novoValor, acaoRetorno) => {
     const verificaInteiro = novoValor.match(/^[0-9]*$/);
     if (!verificaInteiro) return;
@@ -16,6 +17,7 @@ export default function CampoInteiro({valor, estilos, acao}) {
   const numeroEmTexto = String(valor);
 
   return <TextInput 
+    editable={editable}
     style={[estilosPadrao.campo, estilos]}
     keyboardType='number-pad'
     selectTextOnFocus

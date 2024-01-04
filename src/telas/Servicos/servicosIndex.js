@@ -1,12 +1,13 @@
-import { SafeAreaView, StatusBar, FlatList } from 'react-native';
-import Item from './Item';
+import { FlatList } from 'react-native';
+import Item from './Item/itemIndex';
+import TelaPadrao from '../../componentes/TelaPadrao/telaPadrao';
 
 const servicos = [
   {
     id: 1,
     nome: "Banho",
     preco: 79.9,
-    descricao: "NÃO DE BANHO NO SEU GATO! Mas se precisar nós damos."
+    descricao: "NÃO DÊ BANHO NO SEU GATO! Mas se precisar, nós fazemos."
   },
   {
     id: 2,
@@ -23,12 +24,12 @@ const servicos = [
 ];
 
 export default function Servicos() {
-  return <SafeAreaView>
-    <StatusBar />
+  return <TelaPadrao>
     <FlatList
       data={servicos}
-      renderItem={({item}) => <Item {...item}  />}
-      keyExtractor={({id}) => String(id)}
+      removeClippedSubviews={false}
+      keyExtractor={(item) => String(item.id)}
+      renderItem={({item}) => <Item dados={item} ehCarrinho={false}  />}
     />
-  </SafeAreaView>
+  </TelaPadrao>
 }
