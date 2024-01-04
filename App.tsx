@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import './ReactotronConfig'
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Servicos from './src/telas/Servicos/servicosIndex';
+import Carrinho from './src/telas/Carrinho/carrinhoIndex';
+import Rotas from './src/Routes/rotas';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <NavigationContainer>
+    <Rotas/>
+  </NavigationContainer>
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
